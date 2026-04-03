@@ -28,6 +28,9 @@ npm install
 3. Настройка переменных окружения
 Скопируйте .env.example в .env и отредактируйте:
 ```bash
+cp .env.example .env
+```
+```bash
 # Общие
 NODE_ENV=production
 PORT=5000
