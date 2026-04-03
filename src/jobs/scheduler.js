@@ -3,6 +3,7 @@ const rulesEngine = require('../services/rulesEngineService');
 const toirSyncService = require('../services/toirSyncService');
 const { Setting } = require('../models');
 const logger = require('../utils/logger');
+const asuSyncService = require('../services/asuSyncService');
 
 async function startScheduler() {
 
