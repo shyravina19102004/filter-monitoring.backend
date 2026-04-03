@@ -79,7 +79,7 @@ email: admin@example.com
 ```bash
 mkdir fonts
 ```
-# скопируйте DejaVuSans.ttf в папку fonts
+скопируйте DejaVuSans.ttf в папку fonts
 
 7. Запуск сервера
 Режим разработки:
