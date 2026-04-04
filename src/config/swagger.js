@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:5000/api',
+        url: 'http://localhost:5001/api',
         description: 'Development server',
       },
     ],
@@ -56,6 +56,20 @@ const options = {
             action: { type: 'string', example: 'read' },
           },
         },
+        Log: {
+          type: 'object',
+          properties: {
+            id: { type: 'integer', example: 1 },
+            userId: { type: 'integer', nullable: true, example: 5 },
+            action: { type: 'string', example: 'CREATE_USER' },
+            module: { type: 'string', example: 'users' },
+            ipAddress: { type: 'string', example: '127.0.0.1' },
+            userAgent: { type: 'string', example: 'Mozilla/5.0' },
+            status: { type: 'string', enum: ['success', 'error', 'warning'], example: 'success' },
+            details: { type: 'object', example: { method: 'POST', url: '/api/users' } },
+            createdAt: { type: 'string', format: 'date-time' },
+          },
+        },
       },
     },
     security: [{ bearerAuth: [] }],
@@ -66,5 +80,9 @@ const options = {
 const specs = swaggerJsdoc(options);
 
 module.exports = (app) => {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
+    swaggerOptions: {
+      url: '/api-docs/swagger.json?_=' + Date.now(),
+    },
+  }));
 };

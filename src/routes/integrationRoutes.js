@@ -104,6 +104,7 @@ router.post('/toir/sync', authorize('settings:update'), controller.syncToir);
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Log'
+ * 
  */
 router.get('/toir/logs', authorize('logs:read'), controller.getSyncLogs);
 
